@@ -56,8 +56,12 @@ pipeline
                 }
                 stage("Integration Test")
                 {
-                    steps { echo 'Running the integration test' }
-                    input ('Do you want to proceed?')
+                    steps 
+                    { 
+                        echo 'Running the integration test'
+                        input ('Do you want to proceed?')
+                    }
+                    
                 }
             }
             /*steps 
