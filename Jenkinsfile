@@ -18,7 +18,7 @@ pipeline
             {
            
                 git 'https://github.com/Said33pika/mavenApp-hello-world.git'
-                bat 'mvn clean package'
+                //bat 'mvn clean package'
                 echo 'hello'
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -60,7 +60,7 @@ pipeline
             steps 
             {
                 echo 'Deploying the build..'
-                bat 'mvn deploy'
+                //bat 'mvn deploy'
                 //sh 'mvn deploy'
             }
         }
