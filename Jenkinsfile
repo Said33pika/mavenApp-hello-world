@@ -19,7 +19,7 @@ pipeline
            
                 //git 'https://github.com/Said33pika/mavenApp-hello-world'
                 //bat 'mvn clean package'
-                echo 'hello'
+                echo 'hello senpai xD'
                 
                 checkout([$class: 'GitSCM',
                 branches: [[name: 'main']],
@@ -29,16 +29,8 @@ pipeline
                 userRemoteConfigs: [[ url: 'https://github.com/Said33pika/mavenApp-hello-world.git']]
                 ])
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                bat 'mvn clean package'
+       
                 
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -65,6 +57,7 @@ pipeline
                 stage("Integration Test")
                 {
                     steps { echo 'Running the integration test' }
+                    input ('Do you want to proceed?')
                 }
             }
             /*steps 
@@ -80,7 +73,7 @@ pipeline
             steps 
             {
                 echo 'Deploying the build..'
-                //bat 'mvn deploy'
+                bat 'mvn deploy'
                 //sh 'mvn deploy'
             }
         }
