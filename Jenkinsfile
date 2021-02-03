@@ -18,9 +18,6 @@ pipeline
             {
            
                 //git 'https://github.com/Said33pika/mavenApp-hello-world'
-                //bat 'mvn clean package'
-                echo 'hello senpai xD'
-                
                 checkout([$class: 'GitSCM',
                 branches: [[name: 'main']],
                 doGenerateSubmoduleConfigurations: false,
@@ -30,8 +27,7 @@ pipeline
                 ])
                 
                 bat 'mvn clean package'
-       
-                
+          
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
@@ -41,9 +37,9 @@ pipeline
             }
             /*when 
             {
-                branch 'master'
+                branch 'master'  (condition to be met to exec next step, works on the whole stage)
             }*/
-            //steps { echo 'Senpai xD' }
+            
         }
             
         stage("Test") 
@@ -59,17 +55,13 @@ pipeline
                     steps 
                     { 
                         echo 'Running the integration test'
+                        bat 'call mvn test'
                         input ('Do you want to proceed?')
                     }
                     
                 }
             }
-            /*steps 
-            { 
-                //sh 'mvn test' 
-                input ('Do you want to proceed?')
-                
-            }*/
+
         }
         
         stage("Deploy") 
@@ -78,7 +70,6 @@ pipeline
             {
                 echo 'Deploying the build..'
                 bat 'mvn deploy'
-                //sh 'mvn deploy'
             }
         }
 
