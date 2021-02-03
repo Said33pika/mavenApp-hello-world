@@ -17,7 +17,7 @@ pipeline
             steps 
             {
            
-                git 'https://github.com/Said33pika/mavenApp-hello-world.git'
+                git 'https://github.com/Said33pika/mavenApp-hello-world'
                 //bat 'mvn clean package'
                 echo 'hello'
                 // Run Maven on a Unix agent.
