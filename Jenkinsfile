@@ -69,7 +69,7 @@ pipeline
             steps 
             {
                 echo 'Deploying the build..'
-                bat 'call mvn package'
+                bat 'call clean deploy'
             }
         }
 
