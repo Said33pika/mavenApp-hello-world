@@ -69,7 +69,7 @@ pipeline
             steps 
             {
                 echo 'Deploying the build..'
-                bat 'call clean deploy'
+                bat 'call deploy'
             }
         }
 
