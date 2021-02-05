@@ -69,7 +69,9 @@ pipeline
             steps 
             {
                 echo 'Deploying the build..'
-                bat 'call mvn clean deploy'
+                //bat 'call mvn clean deploy' //why not deploying???????????????????
+                
+               // mvn -X -e deploy:deploy-file "-DgeneratePom=true" "-Durl=http://repo_location" -DrepositoryId=internal-repository" "-DgroupId=com.devsys" "-DartifactId=report"                     "-Dbuild.number=%BUILD_NUMBER%" "-Dpackaging=json" "-Dfile=%WORKSPACE%\backend-acceptance-tests\target\cucumber.json"
             }
         }
 
