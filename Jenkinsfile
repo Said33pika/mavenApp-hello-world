@@ -17,14 +17,14 @@ pipeline
             steps 
             {
            
-                //git 'https://github.com/Said33pika/mavenApp-hello-world'
-                checkout([$class: 'GitSCM',
+                git branch: 'main', url: 'https://github.com/Said33pika/mavenApp-hello-world.git'
+                /*checkout([$class: 'GitSCM',
                 branches: [[name: 'main']],
                 doGenerateSubmoduleConfigurations: false,
                 extensions: [[$class: 'CloneOption', timeout: 120, depth: 2, noTags: false, reference: '', shallow: true], [$class: 'SubmoduleOption', recursiveSubmodules:                       false], [$class: 'CleanBeforeCheckout'], [$class: 'CleanCheckout']],
                 submoduleCfg: [],
                 userRemoteConfigs: [[ url: 'https://github.com/Said33pika/mavenApp-hello-world.git']]
-                ])
+                ])*/
                 
                 bat 'mvn clean package'
           
